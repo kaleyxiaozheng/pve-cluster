@@ -12,6 +12,7 @@ module "master_node" {
   vm_password            = var.vm_password # pass the VM password variable to the module for cloud-init use  
   tailscale_auth_key     = var.tailscale_auth_key
   k3s_token              = var.k3s_token
+  ssh_private_key_path   = var.ssh_private_key_path # pass the SSH private key path variable to the module for SSH access
 }
 
 module "worker_node" {
@@ -28,6 +29,7 @@ module "worker_node" {
   vm_password            = var.vm_password # pass the VM password variable to the module for cloud-init use  
   k3s_token              = var.k3s_token
   tailscale_auth_key     = var.tailscale_auth_key
+  ssh_private_key_path   = var.ssh_private_key_path # pass the SSH private key path variable to the module for SSH access
 
 # Ensure the master node is created before worker nodes 
   depends_on = [
