@@ -647,14 +647,20 @@ curl -kv -H "Authorization: PVEAPIToken=root@pam\!terraform-token=1c50f781-99db-
 
 - Run following command under folder path `PVE-cluster` 
 ```bash
-make help
-make init
-make apply-nodes
+terraform init
+terraform plan
+terraform apply -auto-approve
 ```
 
 - log into k3s master node after configuring ~/.ssh/config file
 
-![image](./img/login_master_node_after_config_file_configuration.png)
+![image](./img/ssh_master_vm.png)
+
+![image](./img/ssh_worker1_vm.png)
+
+![image](./img/ssh_worker2_vm.png)
+
+![image](./img/ssh_worker3_vm.png)
 
 - To use kubectl conveniently in the long term, you can either change the file permissions to be readable by your current user or copy the file to your home directory.
 ```bash
