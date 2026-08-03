@@ -6,8 +6,6 @@ help:
 	@echo "  make clean             - Clean local Terraform cache"
 	@echo "  make deploy            - Deploy all resources (template + nodes)"
 	@echo "  make destroy           - Destroy all resources (template + nodes)"
-	@echo "  make destroy-nodes     - Destroy K3s nodes (keep template)"
-	@echo "  make destroy-template  - Destroy Ubuntu template (keep nodes)"
 	@echo "  make init              - Initialise Terraform"
 	@echo "  make plan              - Show Terraform plan"
 	@echo "  make state-list        - List Terraform state resources"
@@ -33,14 +31,6 @@ deploy:
 # Destroy all resources
 destroy:
 	terraform destroy -auto-approve
-
-# Destroy nodes: keep the template by specifying targets
-destroy-nodes:
-	terraform destroy -target=module.master_node -target=module.worker_node -auto-approve
-
-# Destroy template: keep the nodes by specifying targets
-destroy-template:
-	terraform destroy -target=proxmox_virtual_environment_vm.ubuntu_template -auto-approve
 
 init:
 	terraform init

@@ -30,7 +30,6 @@ variable "proxmox_api_token" {
 variable "k3s_token" {
   description = "The token used for K3s node joining"
   type        = string
-  default     = "mysupersecrettoken123"
   sensitive   = true  # true to prevent it from being displayed in logs, as it's a sensitive value
 }
 
